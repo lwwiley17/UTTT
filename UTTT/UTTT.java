@@ -3,7 +3,7 @@ package uttt;
 import java.util.*;
 /**
  *
- * @author Luke  Wiley, Kyle Oprisko, Alex Dagilis
+ * @author Luke  Wiley, Kyle Oprisko, Alexander Dagilis
  */
 public class UTTT
 {
