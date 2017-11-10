@@ -15,7 +15,7 @@ public class UTTT
 
   public void buildBoard(){
       for (int i = 0; i < boardArr.length(); i++){
-        boardArr[i] = '-';
+        boardArr[i] = ' ';
       }
   }
 
@@ -41,19 +41,19 @@ public int[] getBoard(){
   }
 
   public void checkWin(){
-    
+    return;
   }
 
   public void declareWin(){
-
+    return;
   }
 
   public void checkMove(){
-
+    return;
   }
 
   public void placeMove(){
-
+    return;
   }
 
 
