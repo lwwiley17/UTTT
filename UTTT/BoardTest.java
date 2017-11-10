@@ -44,14 +44,14 @@ public class ActionTest {
         assertEquals(EMPTY, this.action.getBoard());
     }
 
-    @test public void buildBoardX(){
+    @Test public void buildBoardX(){
       this.board.buildBoard();
-      this.board.setBoard('X')
+      this.board.setBoard('X');
       assertEquals(X_FILLED, this.action.getBoard());
     }
 
-    @test public void buildBoardO(){
+    @Test public void buildBoardO(){
       this.board,buildBoard();
-      this.board.setBoard('O')
+      this.board.setBoard('O');
       assertEquals(O_FILLED, this.action.getBoard());
     }
