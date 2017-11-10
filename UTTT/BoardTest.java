@@ -41,18 +41,18 @@ public class BoardTest {
 
     @Test public void buildBoardEMPTY() {
         this.board.buildBoard();
-        assertEquals(EMPTY, this.action.getBoard());
+        assertEquals(EMPTY, this.board.getBoard());
     }
 
     @Test public void buildBoardX(){
       this.board.buildBoard();
       this.board.setBoard('X');
-      assertEquals(X_FILLED, this.action.getBoard());
+      assertEquals(X_FILLED, this.board.getBoard());
     }
 
     @Test public void buildBoardO(){
       this.board.buildBoard();
       this.board.setBoard('O');
-      assertEquals(O_FILLED, this.action.getBoard());
+      assertEquals(O_FILLED, this.board.getBoard());
     }
   }
