@@ -10,6 +10,10 @@ import org.junit.*;
  */
 public class ActionTest {
     //private static final String DEFAULT_LABEL       = "Action label";
+    private static final char[] EMPTY     [' ',' ',' ',' ',' ',' ',' ',' ',' '];
+    private static final char[] X_FILLED  ['X','X','X','X','X','X','X','X','X'];
+    private static final char[] O_FILLED  ['O','O','O','O','O','O','O','O','O'];
+
     private Board board;
 
     @BeforeClass
@@ -24,13 +28,30 @@ public class ActionTest {
      * Sets up the test fixture before each test method.
      */
     @Before public void setUp() {
-        this.action = new Action(DEFAULT_LABEL, DEFAULT_DESCRIPTION,
-                                prevPlace, nextPlace);
+        this.board = new Board();
     }
     /**
      * Tears down the test fixture after each test method.
      */
     @After public void tearDown() {
-        this.action = null;
+        this.board = null;
     }
-    
+
+    // testing for the creation of the Tic Tac Toe board
+
+    @Test public void buildBoardEMPTY() {
+        this.board.buildBoard();
+        assertEquals(EMPTY, this.action.getBoard());
+    }
+
+    @test public void buildBoardX(){
+      this.board.buildBoard();
+      this.board.
+      assertEquals(X_FILLED, this.action.getBoard());
+    }
+
+    @test public void buildBoardO(){
+      this.board,buildBoard();
+      this.board.
+      assertEquals(O_FILLED, this.action.getBoard());
+    }
