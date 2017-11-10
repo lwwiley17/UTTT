@@ -10,9 +10,9 @@ import org.junit.*;
  */
 public class ActionTest {
     //private static final String DEFAULT_LABEL       = "Action label";
-    private static final char[] EMPTY     [' ',' ',' ',' ',' ',' ',' ',' ',' '];
-    private static final char[] X_FILLED  ['X','X','X','X','X','X','X','X','X'];
-    private static final char[] O_FILLED  ['O','O','O','O','O','O','O','O','O'];
+    private static final char[] EMPTY     = new char[]{' ',' ',' ',' ',' ',' ',' ',' ',' '};
+    private static final char[] X_FILLED  = new char[]{'X','X','X','X','X','X','X','X','X'};
+    private static final char[] O_FILLED  = new char[]{'O','O','O','O','O','O','O','O','O'};
 
     private Board board;
 
