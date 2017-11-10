@@ -40,6 +40,12 @@ public int[] getBoard(){
       }
   }
 
+  public void setBoard(char Entry){
+    for int(i = 0; i < boardArr.length(); i++){
+        boardArr[i] = Entry;
+    }
+  }
+
   public void checkWin(){
     return;
   }
