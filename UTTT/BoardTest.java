@@ -51,7 +51,8 @@ public class ActionTest {
     }
 
     @Test public void buildBoardO(){
-      this.board,buildBoard();
+      this.board.buildBoard();
       this.board.setBoard('O');
       assertEquals(O_FILLED, this.action.getBoard());
     }
+  }
