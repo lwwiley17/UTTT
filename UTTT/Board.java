@@ -10,7 +10,7 @@ public class UTTT
   private static char[] boardArr = new char[9];
 
   public Board(){
-      createBoard();
+      buildBoard();
   }
 
   public void buildBoard(){
