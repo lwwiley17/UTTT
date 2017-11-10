@@ -8,7 +8,7 @@ import org.junit.*;
  * @author  Luke Wiley
  * @version 11/8/2017
  */
-public class ActionTest {
+public class BoardTest {
     //private static final String DEFAULT_LABEL       = "Action label";
     private static final char[] EMPTY     = new char[]{' ',' ',' ',' ',' ',' ',' ',' ',' '};
     private static final char[] X_FILLED  = new char[]{'X','X','X','X','X','X','X','X','X'};
