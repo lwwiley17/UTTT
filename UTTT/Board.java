@@ -54,13 +54,21 @@ public int[] getBoard(){
     return;
   }
 
-  public void checkMove(){
-    return;
+  public void checkMove(int moveLoc){
+    if (boardArr[moveLoc] == " ")
+      placeMove(moveLoc);
+    else
+      placeMove(-1);
   }
 
-  public void placeMove(){
-    return;
+  public void placeMove(int moveLoc){
+
+   if (moveLoc >= 0 && moveLoc <= 8){
+      boardArr[moveLoc] = "O";
+      System.out.println("Move Made");
+    }
+    else{
+      System.out.println("Please Pick Another Spot to Move");
+    }
   }
-
-
 }
