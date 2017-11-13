@@ -39,20 +39,141 @@ public class BoardTest {
 
     // testing for the creation of the Tic Tac Toe board
 
+
+    //Testing an empty board
     @Test public void buildBoardEMPTY() {
         this.board.buildBoard();
-        assertEquals(EMPTY, this.board.getBoard());
+        assertArrayEquals("buildBoardEMPTY failed",EMPTY, this.board.getBoard());
     }
 
+    //Testing a board filled with X's
     @Test public void buildBoardX(){
       this.board.buildBoard();
       this.board.setBoard('X');
-      assertEquals(X_FILLED, this.board.getBoard());
+      assertArrayEquals("buildBoardX failed",X_FILLED, this.board.getBoard());
+
     }
 
+    //Testing a board filled with O's
     @Test public void buildBoardO(){
       this.board.buildBoard();
       this.board.setBoard('O');
-      assertEquals(O_FILLED, this.board.getBoard());
+      assertArrayEquals("buildBoardO failed",O_FILLED, this.board.getBoard());
     }
+
+
+    //testing a move in the Topleft
+    @Test public void placeMoveTopLeft()
+    {
+      this.board.buildBoard();
+      this.board.placeMove(1);
+      assertArrayEquals("placeMoveTopLeft failed",['X',' ',' ',' ',' ',' ',' ',' ',' '], this.board.getBoard());
+    }
+
+    //testing a move in the middle
+    @Test public void placeMoveTopLeft()
+    {
+      this.board.buildBoard();
+      this.board.placeMove(5);
+      assertArrayEquals("placeMoveTopLeft failed",[' ',' ',' ',' ','5',' ',' ',' ',' '], this.board.getBoard());
+    }
+
+    //testing a move in the BottomRight
+    @Test public void placeMoveTopLeft()
+    {
+      this.board.buildBoard();
+      this.board.placeMove(9);
+      assertArrayEquals("placeMoveTopLeft failed",[' ',' ',' ',' ',' ',' ',' ',' ','X'], this.board.getBoard());
+    }
+
+    //testing for an O going in an X spot
+    @Test public void checkMoveXStays()
+    {
+      this.board.buildBoard();
+      this.board.placeMove(1);
+      this.board.placeMove(1);
+      assertArrayEquals("checkMoveXStays failed",['X',' ',' ',' ',' ',' ',' ',' ',' '], this.board.getBoard());
+    }
+
+    @Test public void checkMoveOStays()
+    {
+      this.board.buildBoard();
+      this.board.placeMove(1);
+      this.board.placeMove(2);
+      this.board.placeMove(2);
+      assertArrayEquals("checkMoveOStays failed",['X','O',' ',' ',' ',' ',' ',' ',' '], this.board.getBoard());
+    }
+
+    //Testing for checking a win in the top row
+    @Test public void checkWinTopRowWin()
+    {
+      this.board.buildBoard();
+      this.board.setBoard(['X','X','X',' ',' ',' ',' ',' ',' ']);
+      assertTrue("checkWinTopRowWin failed",this.board.checkWin());
+    }
+
+    //Testing for checking a win in the top row
+    @Test public void checkWinTopRowWin()
+    {
+      this.board.buildBoard();
+      this.board.setBoard(['X','X','X',' ',' ',' ',' ',' ',' ']);
+      assertTrue("checkWinTopRowWin failed",this.board.checkWin());
+    }
+
+    //Testing for checking a win in the middle row
+    @Test public void checkWinMiddleRowWin()
+    {
+      this.board.buildBoard();
+      this.board.setBoard([' ',' ',' ','X','X','X',' ',' ',' ']);
+      assertTrue("checkWinMiddleRowWin failed",this.board.checkWin());
+    }
+
+    //Testing for checking a win in the bottom row
+    @Test public void checkWinBottomRowWin()
+    {
+      this.board.buildBoard();
+      this.board.setBoard([' ',' ',' ',' ',' ',' ','X','X','X']);
+      assertTrue("checkWinBottomRowWin fialed",this.board.checkWin());
+    }
+
+    //Testing for checking a win in the left column
+    @Test public void checkWinLeftColumnWin()
+    {
+      this.board.buildBoard();
+      this.board.setBoard(['X',' ',' ','X',' ',' ','X',' ',' ']);
+      assertTrue("checkWinTopRowWin failed",this.board.checkWin());
+    }
+
+    //Testing for checking a win in the middle column
+    @Test public void checkWinMiddleColumnWin()
+    {
+      this.board.buildBoard();
+      this.board.setBoard([' ','X',' ',' ','X',' ',' ','X',' ']);
+      assertTrue("checkWinTopRowWin failed",this.board.checkWin());
+    }
+
+    //Testing for checking a win in the right column
+    @Test public void checkWinRightColumnWin()
+    {
+      this.board.buildBoard();
+      this.board.setBoard([' ',' ','X',' ',' ','X',' ',' ','X']);
+      assertTrue("checkWinTopRowWin failed",this.board.checkWin());
+    }
+
+    //declaring X wins
+    @Test public void declareWinX()
+    {
+      this.board.buildBoard();
+      this.board.setBoard(['X','X','X',' ',' ',' ',' ',' ',' '])
+      assertEquals("X Wins",this.board.declareWin());
+    }
+
+    //declaring O Wins
+    @Test public void declareWinX()
+    {
+      this.board.buildBoard();
+      this.board.setBoard(['O','O','O',' ',' ',' ',' ',' ',' '])
+      assertEquals("O Wins",this.board.declareWin());
+    }
+
   }
