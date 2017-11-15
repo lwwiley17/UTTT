@@ -5,7 +5,7 @@ import java.util.*;
  *
  * @author Luke  Wiley, Kyle Oprisko, Alexander Dagilis
  */
-public class UTTT
+public class Board
 {
   private static char[] boardArr = new char[9];
   private static int WIndex = -1;
