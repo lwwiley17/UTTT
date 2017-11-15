@@ -30,7 +30,7 @@ public int[] getBoard(){
       int count = 0;
       for (int i = 0; i < tempArr.length(); i++){
           if(count == 2){
-            retString += tempArr[i] + "\n"
+            retString += tempArr[i] + "\n";
             count = 0;
           }
           else {
@@ -42,7 +42,7 @@ public int[] getBoard(){
   }
 
   public void setBoard(char[] Entry){
-    for int(i = 0; i < boardArr.length(); i++){
+    for (int i = 0; i < boardArr.length(); i++){
         boardArr[i] = Entry[i];
     }
   }
