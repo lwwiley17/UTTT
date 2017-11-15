@@ -75,7 +75,7 @@ public class BoardTest {
     {
       this.board.buildBoard();
       this.board.placeMove(5);
-      assertArrayEquals("placeMoveTopLeft failed",[' ',' ',' ',' ','5',' ',' ',' ',' '], this.board.getBoard());
+      assertArrayEquals("placeMoveTopLeft failed",[' ',' ',' ',' ','X',' ',' ',' ',' '], this.board.getBoard());
     }
 
     //testing a move in the BottomRight
