@@ -41,9 +41,9 @@ public int[] getBoard(){
       }
   }
 
-  public void setBoard(char Entry){
+  public void setBoard(char[] Entry){
     for int(i = 0; i < boardArr.length(); i++){
-        boardArr[i] = Entry;
+        boardArr[i] = Entry[i];
     }
   }
 
