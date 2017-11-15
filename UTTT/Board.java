@@ -25,7 +25,7 @@ public char[] getBoard(){
 }
 
   public void printBoard(){
-      int[] tempArr = getBoard();
+      char[] tempArr = getBoard();
       String retString = "";
       int count = 0;
       for (int i = 0; i < tempArr.length; i++){
