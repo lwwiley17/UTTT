@@ -13,6 +13,21 @@ public class BoardTest {
     private static final char[] EMPTY     = new char[]{' ',' ',' ',' ',' ',' ',' ',' ',' '};
     private static final char[] X_FILLED  = new char[]{'X','X','X','X','X','X','X','X','X'};
     private static final char[] O_FILLED  = new char[]{'O','O','O','O','O','O','O','O','O'};
+    private static final char[] TOP_LEFT_X= new char[]{'X',' ',' ',' ',' ',' ',' ',' ',' '};
+    private static final char[] MIDDLE_X  = new char[]{' ',' ',' ',' ','X',' ',' ',' ',' '};
+    private static final char[] BOT_RITE_X= new char[]{' ',' ',' ',' ',' ',' ',' ',' ','X'};
+    private static final char[] XO_STAYS  = new char[]{'X','O',' ',' ',' ',' ',' ',' ',' '};
+
+    private static final char[] TOP_ROW_WIN = new char[]{'X','X','X',' ',' ',' ',' ',' ',' '};
+    private static final char[] MID_ROW_WIN = new char[]{' ',' ',' ','X','X','X',' ',' ',' '};
+    private static final char[] BOT_ROW_WIN = new char[]{' ',' ',' ',' ',' ',' ','X','X','X'};
+    private static final char[] LEFT_COL_WIN = new char[]{'X',' ',' ','X',' ',' ','X',' ',' '};
+    private static final char[] MID_COL_WIN = new char[]{' ','X',' ',' ','X',' ',' ','X',' '};
+    private static final char[] RIGHT_COL_WIN = new char[]{' ',' ','X',' ',' ','X',' ',' ','X'};
+    private static final char[] NEGATIVE_DIAG = new char[]{'X',' ',' ',' ','X',' ',' ',' ','X'};
+    private static final char[] POSITIVE_DIAG = new char[]{' ',' ','X',' ','X',' ','X',' ',' '};
+
+    private static final char[] O_TOP_ROW_WIN = new char[]{'O','O','O',' ',' ',' ',' ',' ',' '};
 
     private Board board;
 
@@ -67,23 +82,23 @@ public class BoardTest {
     {
       this.board.buildBoard();
       this.board.placeMove(1);
-      assertArrayEquals("placeMoveTopLeft failed",['X',' ',' ',' ',' ',' ',' ',' ',' '], this.board.getBoard());
+      assertArrayEquals("placeMoveTopLeft failed",TOP_LEFT_X, this.board.getBoard());
     }
 
     //testing a move in the middle
-    @Test public void placeMoveTopLeft()
+    @Test public void placeMoveMiddle()
     {
       this.board.buildBoard();
       this.board.placeMove(5);
-      assertArrayEquals("placeMoveTopLeft failed",[' ',' ',' ',' ','X',' ',' ',' ',' '], this.board.getBoard());
+      assertArrayEquals("placeMoveTopLeft failed",MIDDLE_X, this.board.getBoard());
     }
 
     //testing a move in the BottomRight
-    @Test public void placeMoveTopLeft()
+    @Test public void placeMoveBotRight()
     {
       this.board.buildBoard();
       this.board.placeMove(9);
-      assertArrayEquals("placeMoveTopLeft failed",[' ',' ',' ',' ',' ',' ',' ',' ','X'], this.board.getBoard());
+      assertArrayEquals("placeMoveTopLeft failed",BOT_RITE_X, this.board.getBoard());
     }
 
     //testing for an O going in an X spot
@@ -92,7 +107,7 @@ public class BoardTest {
       this.board.buildBoard();
       this.board.placeMove(1);
       this.board.placeMove(1);
-      assertArrayEquals("checkMoveXStays failed",['X',' ',' ',' ',' ',' ',' ',' ',' '], this.board.getBoard());
+      assertArrayEquals("checkMoveXStays failed",TOP_LEFT_X, this.board.getBoard());
     }
 
     @Test public void checkMoveOStays()
@@ -101,22 +116,14 @@ public class BoardTest {
       this.board.placeMove(1);
       this.board.placeMove(2);
       this.board.placeMove(2);
-      assertArrayEquals("checkMoveOStays failed",['X','O',' ',' ',' ',' ',' ',' ',' '], this.board.getBoard());
+      assertArrayEquals("checkMoveOStays failed",XO_STAYS, this.board.getBoard());
     }
 
     //Testing for checking a win in the top row
     @Test public void checkWinTopRowWin()
     {
       this.board.buildBoard();
-      this.board.setBoard(['X','X','X',' ',' ',' ',' ',' ',' ']);
-      assertTrue("checkWinTopRowWin failed",this.board.checkWin());
-    }
-
-    //Testing for checking a win in the top row
-    @Test public void checkWinTopRowWin()
-    {
-      this.board.buildBoard();
-      this.board.setBoard(['X','X','X',' ',' ',' ',' ',' ',' ']);
+      this.board.setBoard(TOP_ROW_WIN);
       assertTrue("checkWinTopRowWin failed",this.board.checkWin());
     }
 
@@ -124,7 +131,7 @@ public class BoardTest {
     @Test public void checkWinMiddleRowWin()
     {
       this.board.buildBoard();
-      this.board.setBoard([' ',' ',' ','X','X','X',' ',' ',' ']);
+      this.board.setBoard(MID_ROW_WIN);
       assertTrue("checkWinMiddleRowWin failed",this.board.checkWin());
     }
 
@@ -132,7 +139,7 @@ public class BoardTest {
     @Test public void checkWinBottomRowWin()
     {
       this.board.buildBoard();
-      this.board.setBoard([' ',' ',' ',' ',' ',' ','X','X','X']);
+      this.board.setBoard(BOT_ROW_WIN);
       assertTrue("checkWinBottomRowWin fialed",this.board.checkWin());
     }
 
@@ -140,39 +147,56 @@ public class BoardTest {
     @Test public void checkWinLeftColumnWin()
     {
       this.board.buildBoard();
-      this.board.setBoard(['X',' ',' ','X',' ',' ','X',' ',' ']);
-      assertTrue("checkWinTopRowWin failed",this.board.checkWin());
+      this.board.setBoard(LEFT_COL_WIN);
+      assertTrue("checkWinLeftColumnWin failed",this.board.checkWin());
     }
 
     //Testing for checking a win in the middle column
     @Test public void checkWinMiddleColumnWin()
     {
       this.board.buildBoard();
-      this.board.setBoard([' ','X',' ',' ','X',' ',' ','X',' ']);
-      assertTrue("checkWinTopRowWin failed",this.board.checkWin());
+      this.board.setBoard(MID_COL_WIN);
+      assertTrue("checkWinMiddleColumnWin failed",this.board.checkWin());
     }
 
     //Testing for checking a win in the right column
     @Test public void checkWinRightColumnWin()
     {
       this.board.buildBoard();
-      this.board.setBoard([' ',' ','X',' ',' ','X',' ',' ','X']);
-      assertTrue("checkWinTopRowWin failed",this.board.checkWin());
+      this.board.setBoard(RIGHT_COL_WIN);
+      assertTrue("checkWinRightColumnWin failed",this.board.checkWin());
     }
+
+    //Testing for checking a win in the diagonal from top left to bottom right (negative slope)
+    @Test public void checkWinNegaiveDiagonal()
+    {
+      this.board.buildBoard();
+      this.board.setBoard(NEGATIVE_DIAG);
+      assertTrue("checkWinNegaiveDiagonal failed",this.board.checkWin());
+    }
+
+    //Testing for checking a win in the diagonal from top right to bottom left (positve slope)
+    @Test public void checkWinPositiveDiagonal()
+    {
+      this.board.buildBoard();
+      this.board.setBoard(POSITIVE_DIAG);
+      assertTrue("checkWinPositiveDiagonal failed",this.board.checkWin());
+    }
+
 
     //declaring X wins
     @Test public void declareWinX()
     {
       this.board.buildBoard();
-      this.board.setBoard(['X','X','X',' ',' ',' ',' ',' ',' '])
+      this.board.setBoard(TOP_ROW_WIN);
       assertEquals("X Wins",this.board.declareWin());
     }
 
     //declaring O Wins
-    @Test public void declareWinX()
+    @Test public void declareWinO()
     {
       this.board.buildBoard();
-      this.board.setBoard(['O','O','O',' ',' ',' ',' ',' ',' '])
+      this.board.setBoard(O_TOP_ROW_WIN);
       assertEquals("O Wins",this.board.declareWin());
     }
 

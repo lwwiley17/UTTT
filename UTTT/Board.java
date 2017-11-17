@@ -15,22 +15,22 @@ public class Board
   }
 
   public void buildBoard(){
-      for (int i = 0; i < boardArr.length(); i++){
+      for (int i = 0; i < boardArr.length; i++){
         boardArr[i] = ' ';
       }
   }
 
-public int[] getBoard(){
+public char[] getBoard(){
   return boardArr;
 }
 
   public void printBoard(){
-      int[] tempArr = getBoard();
+      char[] tempArr = getBoard();
       String retString = "";
       int count = 0;
-      for (int i = 0; i < tempArr.length(); i++){
+      for (int i = 0; i < tempArr.length; i++){
           if(count == 2){
-            retString += tempArr[i] + "\n"
+            retString += tempArr[i] + "\n";
             count = 0;
           }
           else {
@@ -42,7 +42,7 @@ public int[] getBoard(){
   }
 
   public void setBoard(char[] Entry){
-    for int(i = 0; i < boardArr.length(); i++){
+    for (int i = 0; i < boardArr.length; i++){
         boardArr[i] = Entry[i];
     }
   }
@@ -94,8 +94,8 @@ public int[] getBoard(){
 
 
   public char declareWin(){
-    if (checkWin == true){
-      if (boardArr[wIndex] == 'O'){
+    if (this.checkWin() == true){
+      if (boardArr[WIndex] == 'O'){
         return 'O';
       }
       else {
