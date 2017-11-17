@@ -7,10 +7,10 @@ import javax.swing.JOptionPane;
 public class TicGUI extends JFrame
 {
 
-JButton[][] buttons = new JButton[3][3];
+JButton[][] buttons = new JButton[9][9];
 JFrame frame = new JFrame("TicTacToe");                    //Global frame and grid button variables
 JButton reset = new JButton("Reset");             //Create reset button for game
-JOptionPane turn;
+//JOptionPane turn;
 int moveCounter = 9;
 boolean gameWon = false;
 int WhoseTurn = 1;
@@ -18,22 +18,17 @@ int WhoseTurn = 1;
 public TicGUI()                                        //Tic tac default constructor which adds and dimensions Jframe
 {
  super();
- frame.setSize(350, 355);
+ frame.setSize(1000, 1000);
  frame.setDefaultCloseOperation(EXIT_ON_CLOSE);        //Setting dimension of Jframe and setting parameters
  frame.setVisible(true);
- frame.setResizable(false);
- JButton[][] buttons = new JButton[3][3];
- JFrame frame = new JFrame("TicTacToe");                    //Global frame and grid button variables
- JButton reset = new JButton("Reset");             //Create reset button for game
- JOptionPane turn;
-
+ frame.setResizable(true);
 }
 
 private void checkWin(int row, int col)
 {
     try {
     if (buttons[0][2].getText()==buttons[1][2].getText()&& buttons[1][2].getText()==buttons[2][2].getText()&& buttons[2][2].getText()==buttons[0][2].getText()&& buttons[1][2].getText()!="")
-   {
+    {
       gameWon = true;
       WhoseTurn = 0;
       System.out.println(buttons[1][2].getText()+ " wins!!!");
@@ -108,25 +103,28 @@ private void initialize()             //Initialize tic tac toe game board
 {
   JPanel mainPanel = new JPanel(new BorderLayout());         //create main panel container to put layer others on top
   JPanel menu = new JPanel(new BorderLayout());
-  JPanel game = new JPanel(new GridLayout(3,3));                     //Create two more panels with layouts for buttons
+  JPanel game = new JPanel(new GridLayout(9,3));
+  //JPanel game2 = new JPanel(new GridLayout(3,3));                    //Create two more panels with layouts for buttons
 
   frame.add(mainPanel);                                         //add main container panel to frame
 
-  mainPanel.setPreferredSize(new Dimension(325,425));
+  //mainPanel.setPreferredSize(new Dimension(325,425));
   menu.setPreferredSize(new Dimension(300,50));                     //Setting dimensions of panels
-  game.setPreferredSize(new Dimension(300,300));
+  game.setPreferredSize(new Dimension(900,900));
+  //game2.setPreferr.edSize(new Dimension(300,300));
 
   mainPanel.add(menu, BorderLayout.NORTH);                   //Add two panels to the main container panel
   mainPanel.add(game, BorderLayout.SOUTH);
+  //mainPanel.add(game2,BorderLayout.CENTER);
 
   //Add both start/reset buttons to menu container panel
   menu.add(reset, BorderLayout.NORTH);
 
   reset.addActionListener(new myActionListener());
 
-for(int i = 0; i < 3; i++)                      //Create grid of buttons for tic tac toe game
+for(int i = 0; i < 9; i++)                      //Create grid of buttons for tic tac toe game
  {
-  for(int j = 0; j < 3; j++)
+  for(int j = 0; j < 9; j++)
     {
 
      buttons[i][j] = new JButton();                //Instantiating buttons
