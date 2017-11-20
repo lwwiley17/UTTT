@@ -127,6 +127,14 @@ public class BoardTest {
       assertTrue("checkWinTopRowWin failed",this.board.checkWin());
     }
 
+    //Testing for checking a win in the top row
+    @Test public void checkWinTopRowWin()
+    {
+      this.board.buildBoard();
+      this.board.setBoard(TOP_ROW_WIN);
+      assertTrue("checkWinTopRowWin failed",this.board.checkWin());
+    }
+
     //Testing for checking a win in the middle row
     @Test public void checkWinMiddleRowWin()
     {
@@ -148,7 +156,7 @@ public class BoardTest {
     {
       this.board.buildBoard();
       this.board.setBoard(LEFT_COL_WIN);
-      assertTrue("checkWinLeftColumnWin failed",this.board.checkWin());
+      assertTrue("checkWinTopRowWin failed",this.board.checkWin());
     }
 
     //Testing for checking a win in the middle column
@@ -156,7 +164,7 @@ public class BoardTest {
     {
       this.board.buildBoard();
       this.board.setBoard(MID_COL_WIN);
-      assertTrue("checkWinMiddleColumnWin failed",this.board.checkWin());
+      assertTrue("checkWinTopRowWin failed",this.board.checkWin());
     }
 
     //Testing for checking a win in the right column
@@ -164,7 +172,7 @@ public class BoardTest {
     {
       this.board.buildBoard();
       this.board.setBoard(RIGHT_COL_WIN);
-      assertTrue("checkWinRightColumnWin failed",this.board.checkWin());
+      assertTrue("checkWinTopRowWin failed",this.board.checkWin());
     }
 
     //Testing for checking a win in the diagonal from top left to bottom right (negative slope)
@@ -193,7 +201,7 @@ public class BoardTest {
     }
 
     //declaring O Wins
-    @Test public void declareWinO()
+    @Test public void declareWinX()
     {
       this.board.buildBoard();
       this.board.setBoard(O_TOP_ROW_WIN);
