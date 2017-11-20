@@ -1,4 +1,4 @@
-package uttt;
+//package uttt;
 
 import java.util.*;
 /**
@@ -46,6 +46,13 @@ public char[] getBoard(){
         boardArr[i] = Entry[i];
     }
   }
+
+  public void setBoard(char Entry){
+    for (int i = 0; i < boardArr.length; i++){
+        boardArr[i] = Entry;
+    }
+  }
+
 
   public boolean checkWin(){
     if (boardArr[0] == boardArr[1] && boardArr[0] == boardArr[2] && boardArr[0] != ' ')
