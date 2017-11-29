@@ -18,7 +18,7 @@ public class PlayGame
   //Constructor that checks what kind of game the user wants to play
   public PlayGame(String gt){
       gameType = gt.toLowerCase();
-      gametype = gameType.trim();
+      gameType = gameType.trim();
       createGame();
     }
 
