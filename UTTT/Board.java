@@ -124,10 +124,12 @@ public char[] getBoard(){
 
    if (moveLoc >= 0 && moveLoc <= 8 && moveCount % 2 == 0){
       boardArr[moveLoc] = 'O';
+      moveCount++;
       System.out.println("Move Made");
     }
   else if (moveLoc >= 0 && moveLoc <= 8 && moveCount % 2 == 1){
       boardArr[moveLoc] = 'X';
+      moveCount++;
       System.out.println("Move Made");
     }
     else{
