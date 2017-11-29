@@ -105,8 +105,8 @@ public class BoardTest {
     @Test public void checkMoveXStays()
     {
       this.board.buildBoard();
-      this.board.placeMove(0);
-      this.board.placeMove(0);
+      this.board.checkMove(0);
+      this.board.checkMove(0);
       assertArrayEquals("checkMoveXStays failed",TOP_LEFT_X, this.board.getBoard());
     }
 
