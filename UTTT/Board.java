@@ -10,8 +10,14 @@ public class Board
   private static char[] boardArr = new char[9];
   private static int WIndex = -1;
   private int moveCount = 0;
+  private int location = 0;
   public Board(){
       buildBoard();
+  }
+
+  public Board(int loc){
+    location = loc;
+    buildBoard();
   }
 
   public void buildBoard(){
