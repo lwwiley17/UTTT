@@ -201,7 +201,7 @@ public class BoardTest {
     }
 
     //declaring O Wins
-    @Test public void declareWinX()
+    @Test public void declareWinO()
     {
       this.board.buildBoard();
       this.board.setBoard(O_TOP_ROW_WIN);
