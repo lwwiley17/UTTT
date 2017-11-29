@@ -9,7 +9,7 @@ public class Board
 {
   private static char[] boardArr = new char[9];
   private static int WIndex = -1;
-
+  private int moveCount = 0;
   public Board(){
       buildBoard();
   }
@@ -122,8 +122,12 @@ public char[] getBoard(){
 
   public void placeMove(int moveLoc){
 
-   if (moveLoc >= 0 && moveLoc <= 8){
+   if (moveLoc >= 0 && moveLoc <= 8 && moveCount % 2 == 0){
       boardArr[moveLoc] = 'O';
+      System.out.println("Move Made");
+    }
+  else if (moveLoc >= 0 && moveLoc <= 8 && moveCoune % 2 == 1){
+      boardArr[moveLoc] = 'X';
       System.out.println("Move Made");
     }
     else{
