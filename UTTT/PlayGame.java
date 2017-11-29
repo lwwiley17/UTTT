@@ -7,11 +7,7 @@ import java.util.*;
  */
 public class PlayGame
 {
-<<<<<<< HEAD
-  private String gameType;
-=======
   private String gameType = "";
->>>>>>> 64a2188c42947fe9f55361d63fc20217b508e03d
   private ArrayList<Board> global = new ArrayList<Board>();
   private Scanner scan = new Scanner(System.in);
   //Constructor that sets the default to UTTT
