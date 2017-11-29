@@ -7,9 +7,9 @@ import java.util.*;
  */
 public class PlayGame
 {
-  String gameType;
+  private String gameType = "";
   private ArrayList<Board> global = new ArrayList<Board>();
-  Scanner scan = new Scanner(System.in);
+  private Scanner scan = new Scanner(System.in);
   //Constructor that sets the default to UTTT
   public PlayGame(){
       gameType = "ultimate";
