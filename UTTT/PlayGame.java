@@ -38,7 +38,7 @@ public class PlayGame
     }
   }
 
-  public void buildUTTTBoard();
+  public void buildUTTTBoard()
   {
     Board topLeft = new Board(1);
     Board topMid = new Board(2);
