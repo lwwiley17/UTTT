@@ -81,7 +81,7 @@ public class BoardTest {
     @Test public void placeMoveTopLeft()
     {
       this.board.buildBoard();
-      this.board.placeMove(1);
+      this.board.checkMove(0);
       assertArrayEquals("placeMoveTopLeft failed",TOP_LEFT_X, this.board.getBoard());
     }
 
@@ -89,7 +89,7 @@ public class BoardTest {
     @Test public void placeMoveMiddle()
     {
       this.board.buildBoard();
-      this.board.placeMove(5);
+      this.board.checkMove(4);
       assertArrayEquals("placeMoveTopLeft failed",MIDDLE_X, this.board.getBoard());
     }
 
@@ -97,7 +97,7 @@ public class BoardTest {
     @Test public void placeMoveBotRight()
     {
       this.board.buildBoard();
-      this.board.placeMove(9);
+      this.board.checkMove(8);
       assertArrayEquals("placeMoveTopLeft failed",BOT_RITE_X, this.board.getBoard());
     }
 
@@ -105,17 +105,17 @@ public class BoardTest {
     @Test public void checkMoveXStays()
     {
       this.board.buildBoard();
-      this.board.placeMove(1);
-      this.board.placeMove(1);
+      this.board.placeMove(0);
+      this.board.placeMove(0);
       assertArrayEquals("checkMoveXStays failed",TOP_LEFT_X, this.board.getBoard());
     }
 
     @Test public void checkMoveOStays()
     {
       this.board.buildBoard();
-      this.board.placeMove(1);
-      this.board.placeMove(2);
-      this.board.placeMove(2);
+      this.board.checkMove(0);
+      this.board.checkMove(1);
+      this.board.checkMove(1);
       assertArrayEquals("checkMoveOStays failed",XO_STAYS, this.board.getBoard());
     }
 
@@ -197,7 +197,7 @@ public class BoardTest {
     {
       this.board.buildBoard();
       this.board.setBoard(TOP_ROW_WIN);
-      assertEquals("X Wins",this.board.declareWin());
+      assertEquals('X',this.board.declareWin());
     }
 
     //declaring O Wins
@@ -205,7 +205,7 @@ public class BoardTest {
     {
       this.board.buildBoard();
       this.board.setBoard(O_TOP_ROW_WIN);
-      assertEquals("O Wins",this.board.declareWin());
+      assertEquals('O',this.board.declareWin());
     }
 
   }
