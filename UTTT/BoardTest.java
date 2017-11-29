@@ -127,14 +127,6 @@ public class BoardTest {
       assertTrue("checkWinTopRowWin failed",this.board.checkWin());
     }
 
-    //Testing for checking a win in the top row
-    @Test public void checkWinTopRowWin()
-    {
-      this.board.buildBoard();
-      this.board.setBoard(TOP_ROW_WIN);
-      assertTrue("checkWinTopRowWin failed",this.board.checkWin());
-    }
-
     //Testing for checking a win in the middle row
     @Test public void checkWinMiddleRowWin()
     {
