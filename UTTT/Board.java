@@ -3,7 +3,7 @@
 import java.util.*;
 /**
  *
- * @author Luke  Wiley, Kyle Oprisko, Alexander Dagilis
+ * @author Alex Dagilis
  */
 public class Board
 {
