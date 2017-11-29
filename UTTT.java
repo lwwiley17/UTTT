@@ -10,7 +10,7 @@ public class UTTT
 
   public static void main(String[] args)
   {
-
+      PlayGame game1 = new PlayGame("basic");
   }
 
 }
