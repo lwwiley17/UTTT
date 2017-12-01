@@ -7,13 +7,14 @@ import javax.swing.JOptionPane;
 public class TicGUI extends JFrame
 {
 
-JButton[][] buttons = new JButton[9][9];
+JButton[][] buttons = new JButton[3][3];
 JFrame frame = new JFrame("TicTacToe");                    //Global frame and grid button variables
 JButton reset = new JButton("Reset");             //Create reset button for game
 JOptionPane turn;
 int moveCounter = 9;
 boolean gameWon = false;
 int WhoseTurn = 1;
+JPanel game = new JPanel(new GridLayout(3,3));
 
 public TicGUI()                                        //Tic tac default constructor which adds and dimensions Jframe
 {
@@ -23,9 +24,26 @@ public TicGUI()                                        //Tic tac default constru
  //frame.setVisible(true);
  //frame.setResizable(true);
 
- JButton[][] buttons = new JButton[9][9];
+ JButton[][] buttons = new JButton[3][3];
+ buttons.setPreferredSize(new Dimension(100,100));
  int moveCounter = 9;
  boolean gameWon = false;
+
+
+ for(int i = 0; i < 3; i++)                      //Create grid of buttons for tic tac toe game
+  {
+   for(int j = 0; j < 3; j++)
+     {
+      buttons[i][j].setSize(100,100);
+      buttons[i][j] = new JButton();                //Instantiating buttons
+      buttons[i][j].setText("");
+      buttons[i][j].setVisible(true);
+
+      game.setPreferredSize(new Dimension(900,900));
+      game.add(buttons[i][j]);
+      buttons[i][j].addActionListener(new myActionListener());        //Adding response event to buttons
+     }
+  }
 
  //int WhoseTurn = 1;
 
@@ -292,8 +310,17 @@ public void makeGame()
   frame.setResizable(true);
   JPanel mainPanel = new JPanel(new BorderLayout());         //create main panel container to put layer others on top
   JPanel menu = new JPanel(new BorderLayout());
-  JPanel gameDisplay = new JPanel(new GridLayout(3,3));
-  gameDisplay.add(tac[0]);
+  JPanel gameDisplay = new JPanel(new GridLayout(3,3,10,10));
+
+  gameDisplay.add(game1.game);
+  gameDisplay.add(game4.game);
+  gameDisplay.add(game7.game);
+  gameDisplay.add(game2.game);
+  gameDisplay.add(game5.game);
+  gameDisplay.add(game8.game);
+  gameDisplay.add(game3.game);
+  gameDisplay.add(game6.game);
+  gameDisplay.add(game9.game);
 
 
   frame.add(mainPanel);                                         //add main container panel to frame
