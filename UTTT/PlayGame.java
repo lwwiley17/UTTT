@@ -28,6 +28,15 @@ public class PlayGame
     return global.get(boardIndex);
   }
 
+  public void setBoard(char[] entry, int boardIndex){
+    global.get(boardIndex).setBoard(entry);
+  }
+
+  public void nextMove(int boardLoc, int moveLoc){
+    prevMove = moveLoc;
+    global.get(boardLoc).checkMove(moveLoc);
+    getLocalBoard(prevMove);
+  }
 
   public void createGame(){
     if (gameType.equals("basic")){
