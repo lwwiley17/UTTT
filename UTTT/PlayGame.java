@@ -24,6 +24,11 @@ public class PlayGame
       createGame();
     }
 
+  public Board getLocalBoard(int boardIndex){
+    return global.get(boardIndex);
+  }
+
+
   public void createGame(){
     if (gameType.equals("basic")){
       Board basicGameBoard = new Board();
