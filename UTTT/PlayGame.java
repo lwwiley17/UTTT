@@ -10,6 +10,8 @@ public class PlayGame
   private String gameType = "";
   private ArrayList<Board> global = new ArrayList<Board>();
   private Scanner scan = new Scanner(System.in);
+  private int WIndex = -1;
+  private int prevMove = -1;
   //Constructor that sets the default to UTTT
   public PlayGame(){
       gameType = "ultimate";
@@ -58,6 +60,55 @@ public class PlayGame
     global.add(botLeft);
     global.add(botMid);
     global.add(botRight);
+  }
+
+  public boolean checkUltimateWin(){
+    if (topLeft.declareWin() == topMid.declareWin() && topLeft.declareWin() == topRight.declareWin() && topLeft.declareWin() != ' ')
+    {
+      WIndex = 0;
+      return true;
+    }
+    else if (midLeft.declareWin() == midMid.declareWin() && midLeft.declareWin() == midRight.declareWin() && midLeft.declareWin() != ' ')
+    {
+      WIndex = 3;
+      return true;
+    }
+    else if(botLeft.declareWin() == botMid.declareWin() && botLeft.declareWin() == botRight.declareWin() && botLeft.declareWin() != ' ')
+    {
+      WIndex = 6;
+      return true;
+    }
+    else if (topLeft.declareWin() == midLeft.declareWin() && topLeft.declareWin() == botLeft.declareWin() && topLeft.declareWin() != ' ')
+    {
+      WIndex = 0;
+      return true;
+    }
+    else if (topMid.declareWin() == midMid.declareWin() && topMid.declareWin() == botMid.declareWin() && topMid.declareWin() != ' ')
+    {
+      WIndex = 1;
+      return true;
+    }
+    else if (topRight.declareWin() == midRight.declareWin() && topRight.declareWin() == botRight.declareWin() && topRight.declareWin() != ' ')
+    {
+      WIndex = 2;
+      return true;
+    }
+    else if (topLeft.declareWin() == midMid.declareWin() && topLeft.declareWin() == botRight.declareWin() && topLeft.declareWin() != ' ')
+    {
+      WIndex = 0;
+      return true;
+    }
+    else if (topRight.declareWin() == midMid.declareWin() && topRight.declareWin() == botLeft.declareWin() && topLeft.declareWin() != ' ')
+    {
+      WIndex = 2;
+      return true;
+    }
+    else
+        return false;
+  }
+
+  private char declareUltimateWin(){
+    retrun arrayList.get(i).declareWin();
   }
 
 }
