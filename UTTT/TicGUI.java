@@ -14,27 +14,24 @@ JOptionPane turn;
 int moveCounter = 9;
 boolean gameWon = false;
 int WhoseTurn = 1;
+int whichBoard = 5;
 JPanel game = new JPanel(new GridLayout(3,3));
 
 public TicGUI()                                        //Tic tac default constructor which adds and dimensions Jframe
 {
  super();
- //frame.setSize(1000, 1000);
- //frame.setDefaultCloseOperation(EXIT_ON_CLOSE);        //Setting dimension of Jframe and setting parameters
- //frame.setVisible(true);
- //frame.setResizable(true);
-
  JButton[][] buttons = new JButton[3][3];
- buttons.setPreferredSize(new Dimension(100,100));
+
  int moveCounter = 9;
  boolean gameWon = false;
+
+
 
 
  for(int i = 0; i < 3; i++)                      //Create grid of buttons for tic tac toe game
   {
    for(int j = 0; j < 3; j++)
      {
-      buttons[i][j].setSize(100,100);
       buttons[i][j] = new JButton();                //Instantiating buttons
       buttons[i][j].setText("");
       buttons[i][j].setVisible(true);
@@ -44,10 +41,6 @@ public TicGUI()                                        //Tic tac default constru
       buttons[i][j].addActionListener(new myActionListener());        //Adding response event to buttons
      }
   }
-
- //int WhoseTurn = 1;
-
-
 }
 
 private void checkWin(int row, int col)
@@ -160,6 +153,7 @@ for(int i = 0; i < 9; i++)                      //Create grid of buttons for tic
 
      game.add(buttons[i][j]);
      buttons[i][j].addActionListener(new myActionListener());        //Adding response event to buttons
+
     }
  }
 
@@ -307,7 +301,7 @@ public void makeGame()
   frame.setSize(1000, 1000);
   frame.setDefaultCloseOperation(EXIT_ON_CLOSE);        //Setting dimension of Jframe and setting parameters
   frame.setVisible(true);
-  frame.setResizable(true);
+  frame.setResizable(false);
   JPanel mainPanel = new JPanel(new BorderLayout());         //create main panel container to put layer others on top
   JPanel menu = new JPanel(new BorderLayout());
   JPanel gameDisplay = new JPanel(new GridLayout(3,3,10,10));
@@ -357,28 +351,7 @@ public void makeGame()
 
 
 
-public void makeBord()
-{
-  frame.setSize(1000, 1000);
-  frame.setDefaultCloseOperation(EXIT_ON_CLOSE);        //Setting dimension of Jframe and setting parameters
-  frame.setVisible(true);
-  frame.setResizable(true);
-  JPanel mainPanel = new JPanel(new BorderLayout());         //create main panel container to put layer others on top
-  JPanel menu = new JPanel(new BorderLayout());
-  JPanel game = new JPanel(new GridLayout(3,3));
 
-
-  //frame.add(mainPanel);                                         //add main container panel to frame
-
-  //mainPanel.setPreferredSize(new Dimension(325,425));
-  menu.setPreferredSize(new Dimension(300,50));                     //Setting dimensions of panels
-  game.setPreferredSize(new Dimension(900,900));
-  //game2.setPreferr.edSize(new Dimension(300,300));
-
-  mainPanel.add(menu, BorderLayout.NORTH);                   //Add two panels to the main container panel
-  mainPanel.add(game, BorderLayout.SOUTH);
-  //mainPanel.add(game2,BorderLayout.CENTER);
-}
 
 
 
