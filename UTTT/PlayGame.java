@@ -108,7 +108,7 @@ public class PlayGame
   }
 
   private char declareUltimateWin(){
-    retrun arrayList.get(i).declareWin();
+    retrun global.get(i).declareWin();
   }
 
 }
