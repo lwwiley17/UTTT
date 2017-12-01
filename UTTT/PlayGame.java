@@ -63,42 +63,42 @@ public class PlayGame
   }
 
   public boolean checkUltimateWin(){
-    if (topLeft.declareWin() == topMid.declareWin() && topLeft.declareWin() == topRight.declareWin() && topLeft.declareWin() != ' ')
+    if (global.get(0).declareWin() == global.get(1).declareWin() && global.get(0).declareWin() == global.get(2).declareWin() && global.get(0).checkWin() != false)
     {
       WIndex = 0;
       return true;
     }
-    else if (midLeft.declareWin() == midMid.declareWin() && midLeft.declareWin() == midRight.declareWin() && midLeft.declareWin() != ' ')
+    else if (global.get(3).declareWin() == global.get(4).declareWin() && global.get(3).declareWin() == global.get(5).declareWin() && global.get(3).checkWin() != false)
     {
       WIndex = 3;
       return true;
     }
-    else if(botLeft.declareWin() == botMid.declareWin() && botLeft.declareWin() == botRight.declareWin() && botLeft.declareWin() != ' ')
+    else if(global.get(6).declareWin() == global.get(7).declareWin() && global.get(6).declareWin() == global.get(8).declareWin() && global.get(6).checkWin() != false)
     {
       WIndex = 6;
       return true;
     }
-    else if (topLeft.declareWin() == midLeft.declareWin() && topLeft.declareWin() == botLeft.declareWin() && topLeft.declareWin() != ' ')
+    else if (global.get(0).declareWin() == global.get(3).declareWin() && global.get(0).declareWin() == global.get(6).declareWin() && global.get(0).checkWin() != false)
     {
       WIndex = 0;
       return true;
     }
-    else if (topMid.declareWin() == midMid.declareWin() && topMid.declareWin() == botMid.declareWin() && topMid.declareWin() != ' ')
+    else if (global.get(1).declareWin() == global.get(4).declareWin() && global.get(1).declareWin() == global.get(7).declareWin() && global.get(1).checkWin() != false)
     {
       WIndex = 1;
       return true;
     }
-    else if (topRight.declareWin() == midRight.declareWin() && topRight.declareWin() == botRight.declareWin() && topRight.declareWin() != ' ')
+    else if (global.get(2).declareWin() == global.get(5).declareWin() && global.get(2).declareWin() == global.get(8).declareWin() && global.get(2).declareWin() != ' ')
     {
       WIndex = 2;
       return true;
     }
-    else if (topLeft.declareWin() == midMid.declareWin() && topLeft.declareWin() == botRight.declareWin() && topLeft.declareWin() != ' ')
+    else if (global.get(0).declareWin() == global.get(4).declareWin() && global.get(0).declareWin() == global.get(8).declareWin() && global.get(0).declareWin() != ' ')
     {
       WIndex = 0;
       return true;
     }
-    else if (topRight.declareWin() == midMid.declareWin() && topRight.declareWin() == botLeft.declareWin() && topLeft.declareWin() != ' ')
+    else if (global.get(2).declareWin() == global.get(4).declareWin() && global.get(2).declareWin() == global.get(6).declareWin() && global.get(2).declareWin() != ' ')
     {
       WIndex = 2;
       return true;
@@ -108,7 +108,7 @@ public class PlayGame
   }
 
   private char declareUltimateWin(){
-    retrun global.get(i).declareWin();
+      return global.get(i).declareWin();
   }
 
 }
