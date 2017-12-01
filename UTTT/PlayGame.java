@@ -54,8 +54,7 @@ public class PlayGame
     }
   }
 
-  public void buildUTTTBoard();
-  {
+  public void buildUTTTBoard(){
     Board topLeft = new Board(1);
     Board topMid = new Board(2);
     Board topRight = new Board(3);
@@ -122,7 +121,7 @@ public class PlayGame
   }
 
   private char declareUltimateWin(){
-      return global.get(i).declareWin();
+      return global.get(WIndex).declareWin();
   }
 
 }
