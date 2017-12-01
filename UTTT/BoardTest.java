@@ -6,7 +6,7 @@ import org.junit.*;
 /**
  * ActionTest (JUnit 4)
  * @author  Luke Wiley
- * @version 11/20/2017
+ * @version 11/28/2017
  */
 public class BoardTest {
     //private static final String DEFAULT_LABEL       = "Action label";
