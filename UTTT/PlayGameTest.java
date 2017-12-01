@@ -43,4 +43,41 @@ public class PlayGameTest {
         this.createGame.buildUTTTBoard();
         assertArrayEquals("buildBoardEMPTY failed",EMPTY, this.board.getBoard());
     }
+
+
+    @Test public void createGame(){
+
+    }
+
+    //taking an integer and then
+    @Test public void getLocalBoard(){
+
+    }
+
+    @Test public void checkUltimateWin(){
+
+    }
+
+    @Test public void declareUtimateWin(){
+
+    }
+
+    @Test public void buildUTTTBoard(){
+
+    }
+
+    @Test public void nextMoveNormal(){
+
+    }
+
+    @Test public void nextMoveFree(){
+
+    }
+    //getLocalBoard, access eah local board
+    //setBoard, setting each board for further checking other tests
+    //checkUltimateWin, winning the biggest board
+    //declareUltimateWin,
+    //createGame
+    //buildUTTTBoard
+    //nextMove, storing the move of the previous player to then send the next player to the corresponding local board, and then if the board is won, rewards a free move
 }

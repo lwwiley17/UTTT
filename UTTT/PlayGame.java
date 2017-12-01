@@ -10,8 +10,6 @@ public class PlayGame
   private String gameType = "";
   private ArrayList<Board> global = new ArrayList<Board>();
   private Scanner scan = new Scanner(System.in);
-  private int WIndex = -1;
-  private int prevMove = -1;
   //Constructor that sets the default to UTTT
   public PlayGame(){
       gameType = "ultimate";
@@ -23,20 +21,6 @@ public class PlayGame
       gameType = gameType.trim();
       createGame();
     }
-
-  public Board getLocalBoard(int boardIndex){
-    return global.get(boardIndex);
-  }
-
-  public void setBoard(char[] entry, int boardIndex){
-    global.get(boardIndex).setBoard(entry);
-  }
-
-  public void nextMove(int boardLoc, int moveLoc){
-    prevMove = moveLoc;
-    global.get(boardLoc).checkMove(moveLoc);
-    getLocalBoard(prevMove);
-  }
 
   public void createGame(){
     if (gameType.equals("basic")){
@@ -54,7 +38,8 @@ public class PlayGame
     }
   }
 
-  public void buildUTTTBoard(){
+  public void buildUTTTBoard()
+  {
     Board topLeft = new Board(1);
     Board topMid = new Board(2);
     Board topRight = new Board(3);
@@ -73,55 +58,6 @@ public class PlayGame
     global.add(botLeft);
     global.add(botMid);
     global.add(botRight);
-  }
-
-  public boolean checkUltimateWin(){
-    if (global.get(0).declareWin() == global.get(1).declareWin() && global.get(0).declareWin() == global.get(2).declareWin() && global.get(0).checkWin() != false)
-    {
-      WIndex = 0;
-      return true;
-    }
-    else if (global.get(3).declareWin() == global.get(4).declareWin() && global.get(3).declareWin() == global.get(5).declareWin() && global.get(3).checkWin() != false)
-    {
-      WIndex = 3;
-      return true;
-    }
-    else if(global.get(6).declareWin() == global.get(7).declareWin() && global.get(6).declareWin() == global.get(8).declareWin() && global.get(6).checkWin() != false)
-    {
-      WIndex = 6;
-      return true;
-    }
-    else if (global.get(0).declareWin() == global.get(3).declareWin() && global.get(0).declareWin() == global.get(6).declareWin() && global.get(0).checkWin() != false)
-    {
-      WIndex = 0;
-      return true;
-    }
-    else if (global.get(1).declareWin() == global.get(4).declareWin() && global.get(1).declareWin() == global.get(7).declareWin() && global.get(1).checkWin() != false)
-    {
-      WIndex = 1;
-      return true;
-    }
-    else if (global.get(2).declareWin() == global.get(5).declareWin() && global.get(2).declareWin() == global.get(8).declareWin() && global.get(2).declareWin() != ' ')
-    {
-      WIndex = 2;
-      return true;
-    }
-    else if (global.get(0).declareWin() == global.get(4).declareWin() && global.get(0).declareWin() == global.get(8).declareWin() && global.get(0).declareWin() != ' ')
-    {
-      WIndex = 0;
-      return true;
-    }
-    else if (global.get(2).declareWin() == global.get(4).declareWin() && global.get(2).declareWin() == global.get(6).declareWin() && global.get(2).declareWin() != ' ')
-    {
-      WIndex = 2;
-      return true;
-    }
-    else
-        return false;
-  }
-
-  private char declareUltimateWin(){
-      return global.get(WIndex).declareWin();
   }
 
 }
