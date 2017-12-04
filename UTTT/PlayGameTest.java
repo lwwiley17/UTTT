@@ -1,4 +1,4 @@
-//package uttt;
+package uttt;
 
 import static org.junit.Assert.*;
 import org.junit.*;
@@ -10,6 +10,7 @@ import org.junit.*;
  */
 public class PlayGameTest {
     //private static final String DEFAULT_LABEL       = "Action label";
+    private static final char[] EMPTY     = new char[]{' ',' ',' ',' ',' ',' ',' ',' ',' '};
 
 
     private PlayGame game;
@@ -27,38 +28,42 @@ public class PlayGameTest {
      */
     @Before public void setUp() {
         this.game = new PlayGame();
+        this.game.createGame.buildUTTTBoard();
     }
     /**
      * Tears down the test fixture after each test method.
      */
     @After public void tearDown() {
-        this.board = null;
+        this.game = null;
     }
 
     // testing for the creation of the Tic Tac Toe board
 
 
     //Testing an empty board
+
     @Test public void buildBoardEMPTY() {
-        this.createGame.buildUTTTBoard();
-        assertArrayEquals("buildBoardEMPTY failed",EMPTY, this.board.getBoard());
+      assertEquals(9,this.game.global.length());
     }
 
+/*
 
     @Test public void createGame(){
 
     }
 
+*/
+
     //taking an integer and then
     @Test public void getLocalBoard(){
+      assertArrayEquals("getLocalBoard failed",EMPTY, this.game.getLocalBoard(0));
+    }
+/*
+    //@Test public void checkUltimateWin(){
 
     }
 
-    @Test public void checkUltimateWin(){
-
-    }
-
-    @Test public void declareUtimateWin(){
+    //@Test public void declareUtimateWin(){
 
     }
 
@@ -80,4 +85,7 @@ public class PlayGameTest {
     //createGame
     //buildUTTTBoard
     //nextMove, storing the move of the previous player to then send the next player to the corresponding local board, and then if the board is won, rewards a free move
+
+*/
+
 }
