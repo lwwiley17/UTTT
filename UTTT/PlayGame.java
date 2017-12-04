@@ -24,6 +24,10 @@ public class PlayGame
       createGame();
     }
 
+    public ArrayList getGlobal(){
+      return global;
+    }
+
   public Board getLocalBoard(int boardIndex){
     return global.get(boardIndex);
   }
