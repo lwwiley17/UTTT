@@ -12,19 +12,25 @@ JFrame frame = new JFrame("TicTacToe");                    //Global frame and gr
 JButton reset = new JButton("Reset");             //Create reset button for game
 
 JOptionPane turn;
-int moveCounter = 10;
-boolean gameWon = false;
-int WhoseTurn = 0;
+int moveCounter;
+boolean gameWon;
+public static int WhoseTurn = 0;
+
 JPanel game = new JPanel(new GridLayout(3,3));
-TicGUI[] tac = new TicGUI[9];
+
+public static TicGUI[] tac = new TicGUI[9];
+
 boolean totalwin = false;
+char winner;
 
 public TicGUI()                                        //Tic tac default constructor which adds and dimensions Jframe
 {
  super("Ultimate Tic Tac Toe");
 
- int moveCounter = 9;
- boolean gameWon = false;
+ moveCounter = 9;
+ gameWon = false;
+ winner = ' ';
+
  for(int i = 0; i < 3; i++)                      //Create grid of buttons for tic tac toe game
   {
    for(int j = 0; j < 3; j++)
@@ -39,6 +45,7 @@ public TicGUI()                                        //Tic tac default constru
 
      }
   }
+
 }
 
 private void checkWin(int row, int col)
@@ -47,51 +54,51 @@ private void checkWin(int row, int col)
     if (buttons[0][2].getText()==buttons[1][2].getText()&& buttons[1][2].getText()==buttons[2][2].getText()&& buttons[2][2].getText()==buttons[0][2].getText()&& buttons[1][2].getText()!="")
     {
       gameWon = true;
-      // WhoseTurn = 0;
       System.out.println(buttons[1][2].getText()+ " wins!!!");
       JOptionPane.showMessageDialog(frame, buttons[1][2].getText()+ " wins!!!");
+      setWinner(buttons[1][2].getText().charAt(0));
    }
     if (buttons[0][1].getText()==buttons[1][1].getText()&& buttons[1][1].getText()==buttons[2][1].getText()&& buttons[2][1].getText()==buttons[0][1].getText()&& buttons[1][1].getText()!="")
    {
       gameWon = true;
-      // WhoseTurn = 0;
       System.out.println(buttons[1][1].getText()+ " wins!!!");
       JOptionPane.showMessageDialog(frame, buttons[1][1].getText()+ " wins!!!");
+      setWinner(buttons[1][1].getText().charAt(0));
    }
     if (buttons[0][0].getText()==buttons[1][0].getText()&& buttons[1][0].getText()==buttons[2][0].getText()&& buttons[2][0].getText()==buttons[0][0].getText()&& buttons[1][0].getText()!="")
    {
       gameWon = true;
-      // WhoseTurn = 0;
       System.out.println(buttons[1][0].getText()+ " wins!!!");
       JOptionPane.showMessageDialog(frame, buttons[1][0].getText()+ " wins!!!");
+      setWinner(buttons[1][0].getText().charAt(0));
    }
     if (buttons[2][0].getText()==buttons[2][1].getText()&& buttons[2][1].getText()==buttons[2][2].getText()&& buttons[2][2].getText()==buttons[2][0].getText()&& buttons[2][1].getText()!="")
    {
       gameWon = true;
-      // WhoseTurn = 0;
       System.out.println(buttons[2][1].getText()+ " wins!!!");
       JOptionPane.showMessageDialog(frame, buttons[2][1].getText()+ " wins!!!");
+      setWinner(buttons[2][1].getText().charAt(0));
    }
     if (buttons[1][0].getText()==buttons[1][1].getText()&& buttons[1][1].getText()==buttons[1][2].getText()&& buttons[1][2].getText()==buttons[1][0].getText()&& buttons[1][1].getText()!="")
    {
       gameWon = true;
-      // WhoseTurn = 0;
       System.out.println(buttons[1][1].getText()+ " wins!!!");
       JOptionPane.showMessageDialog(frame, buttons[1][1].getText()+ " wins!!!");
+      setWinner(buttons[1][1].getText().charAt(0));
    }
     if (buttons[0][0].getText()==buttons[0][1].getText()&& buttons[0][1].getText()==buttons[0][2].getText()&& buttons[0][2].getText()==buttons[0][0].getText()&& buttons[0][1].getText()!="")
    {
       gameWon = true;
-      // WhoseTurn = 0;
       System.out.println(buttons[0][1].getText()+ " wins!!!");
       JOptionPane.showMessageDialog(frame, buttons[0][1].getText()+ " wins!!!");
+      setWinner(buttons[0][1].getText().charAt(0));
    }
    if (buttons[0][0].getText()==buttons[1][1].getText()&& buttons[1][1].getText()==buttons[2][2].getText()&& buttons[2][2].getText()==buttons[0][0].getText()&& buttons[1][1].getText()!="")
    {
       gameWon = true;
-      // WhoseTurn = 0;
       System.out.println(buttons[1][1].getText()+ " wins!!!");
       JOptionPane.showMessageDialog(frame, buttons[1][1].getText()+ " wins!!!");
+      setWinner(buttons[1][1].getText().charAt(0));
    }
    if (buttons[0][2].getText()==buttons[1][1].getText()&& buttons[1][1].getText()==buttons[2][0].getText()&& buttons[2][0].getText()==buttons[0][2].getText()&& buttons[1][1].getText()!="")
    {
@@ -99,6 +106,7 @@ private void checkWin(int row, int col)
       // WhoseTurn = 0;
       System.out.println(buttons[1][1].getText()+ " wins!!!");
       JOptionPane.showMessageDialog(frame, buttons[1][1].getText()+ " wins!!!");
+      setWinner(buttons[1][1].getText().charAt(0));
    }
 
    if (moveCounter == 0)
@@ -106,7 +114,7 @@ private void checkWin(int row, int col)
      gameWon = true;
      System.out.println("Stalemate");
      JOptionPane.showMessageDialog(frame, "Stalemate");
-
+     setWinner('t');
    }
 
     }catch(Exception e) {
@@ -114,6 +122,11 @@ private void checkWin(int row, int col)
         System.out.println("Stalemate");
         JOptionPane.showMessageDialog(frame, "Stalemate");
     }
+}
+
+private void setWinner(char c)
+{
+  winner = c;
 }
 
 private void compTurn(int count)
@@ -130,7 +143,7 @@ private class myActionListener implements ActionListener
  public void actionPerformed(ActionEvent a)
   {
    //Display X's or O's on the buttons
-   //overallwin();
+
    if (gameWon==false)
    {
    if(a.getSource() == buttons[0][0])                  //Checking which button is pressed
@@ -139,6 +152,7 @@ private class myActionListener implements ActionListener
          buttons[0][0].setText("O");
        else
          buttons[0][0].setText("X");
+
 
        buttons[0][0].setEnabled(false);
        WhoseTurn ++;
@@ -155,7 +169,7 @@ private class myActionListener implements ActionListener
        buttons[0][1].setEnabled(false);
        WhoseTurn ++;
        moveCounter--;
-       compTurn(moveCounter);
+       //compTurn(moveCounter);
        checkWin(0,1);
      }
    else if(a.getSource() == buttons[1][0])
@@ -168,7 +182,7 @@ private class myActionListener implements ActionListener
       buttons[1][0].setEnabled(false);
       WhoseTurn ++;
       moveCounter--;
-      compTurn(moveCounter);
+      //compTurn(moveCounter);
       checkWin(1,0);
     }
    else if(a.getSource() == buttons[1][1])
@@ -181,7 +195,7 @@ private class myActionListener implements ActionListener
       buttons[1][1].setEnabled(false);
       WhoseTurn ++;
       moveCounter--;
-      compTurn(moveCounter);
+      //compTurn(moveCounter);
       checkWin(1,1);
     }
    else if(a.getSource() == buttons[1][2])
@@ -194,7 +208,7 @@ private class myActionListener implements ActionListener
       buttons[1][2].setEnabled(false);
       WhoseTurn ++;
       moveCounter--;
-      compTurn(moveCounter);
+      //compTurn(moveCounter);
       checkWin(1,2);
     }
    else if(a.getSource() == buttons[2][2])
@@ -207,7 +221,7 @@ private class myActionListener implements ActionListener
      buttons[2][2].setEnabled(false);
      WhoseTurn ++;
      moveCounter--;
-     compTurn(moveCounter);
+     //compTurn(moveCounter);
      checkWin(2,2);
     }
    else if(a.getSource() == buttons[0][2])
@@ -220,7 +234,7 @@ private class myActionListener implements ActionListener
      buttons[0][2].setEnabled(false);
      WhoseTurn ++;
      moveCounter--;
-     compTurn(moveCounter);
+     //compTurn(moveCounter);
      checkWin(0,2);
     }
    else if(a.getSource() == buttons[2][1])
@@ -233,7 +247,7 @@ private class myActionListener implements ActionListener
      buttons[2][1].setEnabled(false);
      WhoseTurn ++;
      moveCounter--;
-     compTurn(moveCounter);
+     //compTurn(moveCounter);
      checkWin(2,1);
     }
    else if(a.getSource() == buttons[2][0])
@@ -246,9 +260,10 @@ private class myActionListener implements ActionListener
      buttons[2][0].setEnabled(false);
      WhoseTurn ++;
      moveCounter--;
-     compTurn(moveCounter);
+     //compTurn(moveCounter);
      checkWin(2,0);
     }
+    overallwin();
     }
 
    //if(a.getSource() == reset)
@@ -272,9 +287,8 @@ private class myActionListener implements ActionListener
 
 public static void main(String[] args)
 {
-  TicGUI game = new TicGUI();         //main method and instantiating tic tac object and calling initialize function
-  game.Game();
-
+  TicGUI play = new TicGUI();         //main method and instantiating tic tac object and calling initialize function
+  play.Game();
  }
 
 public void Game()
@@ -284,7 +298,7 @@ public void Game()
    TicGUI game2 = new TicGUI();
    TicGUI game3 = new TicGUI();
    TicGUI game4 = new TicGUI();
-   TicGUI game5= new TicGUI();
+   TicGUI game5 = new TicGUI();
    TicGUI game6 = new TicGUI();
    TicGUI game7 = new TicGUI();
    TicGUI game8 = new TicGUI();
@@ -331,13 +345,58 @@ public void Game()
 }
 public void overallwin()
 {
-  //System.out.println(tac[0].gameWon);
-  // if(tac[0].gameWon == true && tac[1].gameWon==true)
-  // {
-  //    totalwin =true;
-  //    JOptionPane.showMessageDialog(frame, "Winner");
-  //
-  // }
-  return;
+  System.out.println(WhoseTurn);
+  char c1= tac[0].winner;
+  char c2= tac[1].winner;
+  char c3= tac[2].winner;
+  char c4= tac[3].winner;  //c stands for char of whatever game
+  char c5= tac[4].winner;
+  char c6= tac[5].winner;
+  char c7= tac[6].winner;
+  char c8= tac[7].winner;
+  char c9= tac[8].winner;
+
+
+  if(c1 == c2 && c1 == c3 && c1 != ' ')
+  {
+      this.totalwin =true;
+      JOptionPane.showMessageDialog(frame, "Winner");
+  }
+  if(c1 == c4 && c1 == c7 && c1 != ' ')
+   {
+      this.totalwin =true;
+      JOptionPane.showMessageDialog(frame, "Winner");
+   }
+   if(c1 == c5 && c1 == c9 && c1 != ' ')
+    {
+       this.totalwin =true;
+       JOptionPane.showMessageDialog(frame, "Winner");
+    }
+    if(c2 == c5 && c2 == c8 && c2 != ' ')
+     {
+        this.totalwin =true;
+        JOptionPane.showMessageDialog(frame, "Winner");
+     }
+     if(c3 == c6 && c3 == c9 && c3 != ' ')
+      {
+         this.totalwin =true;
+         JOptionPane.showMessageDialog(frame, "Winner");
+      }
+      if(c3 == c5 && c3 == c7 && c3 != ' ')
+       {
+          this.totalwin =true;
+          JOptionPane.showMessageDialog(frame, "Winner");
+       }
+       if(c4 == c5 && c4 == c6 && c4 != ' ')
+        {
+           this.totalwin =true;
+           JOptionPane.showMessageDialog(frame, "Winner");
+        }
+        if(c7 == c8 && c7 == c9 && c7 != ' ')
+         {
+            this.totalwin =true;
+            JOptionPane.showMessageDialog(frame, "Winner");
+         }
+
 }
 }
