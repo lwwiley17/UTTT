@@ -10,6 +10,7 @@ public class TicGUI extends JFrame
 JButton[][] buttons = new JButton[3][3];
 JFrame frame = new JFrame("TicTacToe");                    //Global frame and grid button variables
 JButton reset = new JButton("Reset");             //Create reset button for game
+// reset.addActionListener(new myActionListener());
 
 JOptionPane turn;
 int moveCounter;
@@ -586,7 +587,8 @@ public void Game()
   menu.setPreferredSize(new Dimension(1000,50));                     //Setting dimensions of panels
   gameDisplay.setPreferredSize(new Dimension(900,900));
 
-  mainPanel.add(reset, BorderLayout.NORTH);                   //Add two panels to the main container panel
+  mainPanel.add(reset, BorderLayout.NORTH);
+  reset.addActionListener(new myActionListener());                  //Add two panels to the main container panel
   mainPanel.add(gameDisplay, BorderLayout.SOUTH);
 }
 public void overallwin()
@@ -692,6 +694,7 @@ public void resetGame()
         tac[k].buttons[i][j].setEnabled(true);
         tac[k].moveCounter = 9;
         WhoseTurn = 1;
+        tac[k].buttons[i][j].setBackground(null);
       }
     }
   }
