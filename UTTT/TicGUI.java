@@ -10,20 +10,18 @@ public class TicGUI extends JFrame
 JButton[][] buttons = new JButton[3][3];
 JFrame frame = new JFrame("TicTacToe");                    //Global frame and grid button variables
 JButton reset = new JButton("Reset");             //Create reset button for game
-// reset.addActionListener(new myActionListener());
 
-JOptionPane turn;
 int moveCounter;
 boolean gameWon;
 int allowMoves;
+boolean totalwin = false;
+char winner;
+
 public static int WhoseTurn = 0;
 
 JPanel game = new JPanel(new GridLayout(3,3));
 
 public static TicGUI[] tac = new TicGUI[9];
-
-boolean totalwin = false;
-char winner;
 
 public TicGUI()                                        //Tic tac default constructor which adds and dimensions Jframe
 {
@@ -33,6 +31,7 @@ public TicGUI()                                        //Tic tac default constru
  gameWon = false;
  winner = ' ';
  allowMoves = 10;
+
  for(int i = 0; i < 3; i++)                      //Create grid of buttons for tic tac toe game
   {
    for(int j = 0; j < 3; j++)
@@ -307,7 +306,6 @@ private void compTurn(int count)
   int randomMove=count;
   Random num = new Random();
   randomMove = num.nextInt(randomMove)+1;
-
 }
 
 
@@ -317,13 +315,12 @@ private class myActionListener implements ActionListener
   {
    //Display X's or O's on the buttons
    //allowMoves;
-   System.out.println(a.getSource());
    Color myRed = new Color(255, 0, 0);
    Color myGreen = new Color(0, 225, 0);
 
    if (gameWon==false)
    {
-   if(a.getSource() == buttons[0][0] && !buttons[0][0].getText().equals("X") && !buttons[0][0].getText().equals('O'))                  //Checking which button is pressed
+   if(a.getSource() == buttons[0][0] && !buttons[0][0].getText().equals("X") && !buttons[0][0].getText().equals("O"))                  //Checking which button is pressed
      {
        allowMoves = 0;
        if (WhoseTurn % 2 == 1)
@@ -342,7 +339,7 @@ private class myActionListener implements ActionListener
        checkWin(0,0);
        playwhere(allowMoves);
      }
-   else if(a.getSource() == buttons[0][1] && !buttons[0][1].getText().equals("X") && !buttons[0][1].getText().equals('O'))
+   else if(a.getSource() == buttons[0][1] && !buttons[0][1].getText().equals("X") && !buttons[0][1].getText().equals("O"))
      {
        allowMoves = 1;
        if (WhoseTurn % 2 == 1)
@@ -362,7 +359,7 @@ private class myActionListener implements ActionListener
        checkWin(0,1);
        playwhere(allowMoves);
      }
-   else if(a.getSource() == buttons[1][0] && !buttons[1][0].getText().equals("X") && !buttons[1][0].getText().equals('O'))
+   else if(a.getSource() == buttons[1][0] && !buttons[1][0].getText().equals("X") && !buttons[1][0].getText().equals("O"))
     {
       allowMoves= 3;
       if (WhoseTurn % 2 == 1)
@@ -383,7 +380,7 @@ private class myActionListener implements ActionListener
       checkWin(1,0);
       playwhere(allowMoves);
     }
-   else if(a.getSource() == buttons[1][1] && !buttons[1][1].getText().equals("X") && !buttons[1][1].getText().equals('O'))
+   else if(a.getSource() == buttons[1][1] && !buttons[1][1].getText().equals("X") && !buttons[1][1].getText().equals("O"))
     {
       allowMoves = 4;
       if (WhoseTurn % 2 == 1)
@@ -403,7 +400,7 @@ private class myActionListener implements ActionListener
       checkWin(1,1);
       playwhere(allowMoves);
     }
-   else if(a.getSource() == buttons[1][2] && !buttons[1][2].getText().equals("X") && !buttons[1][2].getText().equals('O'))
+   else if(a.getSource() == buttons[1][2] && !buttons[1][2].getText().equals("X") && !buttons[1][2].getText().equals("O"))
     {
       allowMoves = 5;
       if (WhoseTurn % 2 == 1)
@@ -424,7 +421,7 @@ private class myActionListener implements ActionListener
       checkWin(1,2);
       playwhere(allowMoves);
     }
-   else if(a.getSource() == buttons[2][2] && !buttons[2][2].getText().equals("X") && !buttons[2][2].getText().equals('O'))
+   else if(a.getSource() == buttons[2][2] && !buttons[2][2].getText().equals("X") && !buttons[2][2].getText().equals("O"))
     {
     allowMoves = 8;
      if (WhoseTurn % 2 == 1)
@@ -445,7 +442,7 @@ private class myActionListener implements ActionListener
      checkWin(2,2);
      playwhere(allowMoves);
     }
-   else if(a.getSource() == buttons[0][2] && !buttons[0][2].getText().equals("X") && !buttons[0][2].getText().equals('O'))
+   else if(a.getSource() == buttons[0][2] && !buttons[0][2].getText().equals("X") && !buttons[0][2].getText().equals("O"))
     {
       allowMoves = 2;
      if (WhoseTurn % 2 == 1)
@@ -466,7 +463,7 @@ private class myActionListener implements ActionListener
      checkWin(0,2);
      playwhere(allowMoves);
     }
-   else if(a.getSource() == buttons[2][1] && !buttons[2][1].getText().equals("X") && !buttons[2][1].getText().equals('O'))
+   else if(a.getSource() == buttons[2][1] && !buttons[2][1].getText().equals("X") && !buttons[2][1].getText().equals("O"))
     {
       allowMoves = 7;
      if (WhoseTurn % 2 == 1)
@@ -487,7 +484,7 @@ private class myActionListener implements ActionListener
      checkWin(2,1);
      playwhere(allowMoves);
     }
-   else if(a.getSource() == buttons[2][0] && !buttons[2][0].getText().equals("X") && !buttons[2][0].getText().equals('O'))
+   else if(a.getSource() == buttons[2][0] && !buttons[2][0].getText().equals("X") && !buttons[2][0].getText().equals("O"))
     {
       allowMoves = 6;
      if (WhoseTurn % 2 == 1)
@@ -513,20 +510,7 @@ private class myActionListener implements ActionListener
 
    if(a.getSource() == reset)
      {
-       System.out.println("reset");
        resetGame();
-      //  for(int i = 0; i < 3; i++)
-        // {
-          // for(int j = 0; j < 3; j++)
-            //{
-              //  gameWon = false;
-               //buttons[i][j].setText("");
-               //buttons[i][j].setEnabled(true);
-               //moveCounter = 9;
-               //WhoseTurn = 1;
-
-            //}
-         //}
       }
   }
  }
