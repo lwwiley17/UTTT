@@ -11,6 +11,8 @@ import org.junit.*;
 public class PlayGameTest {
     //private static final String DEFAULT_LABEL       = "Action label";
     private static final char[] EMPTY     = new char[]{' ',' ',' ',' ',' ',' ',' ',' ',' '};
+    private static final char[] MIDDLE_X  = new char[]{' ',' ',' ',' ','X',' ',' ',' ',' '};
+    private static final char[] MID_ROW_WIN = new char[]{' ',' ',' ','X','X','X',' ',' ',' '};
 
 
     private PlayGame game;
@@ -40,44 +42,42 @@ public class PlayGameTest {
     // testing for the creation of the Tic Tac Toe board
 
 
-    //Testing an empty board
-
-    @Test public void buildBoardEMPTY() {
+    //Testing the building of the global board
+    @Test public void buildBoard()) {
       assertEquals(9,this.game.global.length());
     }
 
-/*
-
-    @Test public void createGame(){
-
-    }
-
-*/
-
-    //taking an integer and then
+    //taking an integer and then returning the corresponding board
     @Test public void getLocalBoard(){
       assertArrayEquals("getLocalBoard failed",EMPTY, this.game.getLocalBoard(0));
     }
-/*
-    //@Test public void checkUltimateWin(){
+
+    //making sure that this can be used for checking wins later
+    @Test public void setLocalBoard(){
+      this.game.setLocalBoard(0,MIDDLE_X);
+      assertArrayEquals("setLocalBoard failed",MIDDLE_X, this.game.getLocalBoard(0));
 
     }
 
-    //@Test public void declareUtimateWin(){
-
-    }
-
-    @Test public void buildUTTTBoard(){
-
-    }
-
-    @Test public void nextMoveNormal(){
-
+    //making sure the locked next moves are set in place
+    @Test public void nextMoveLocation(){
+      this.game.getMove(0);
+      assertEquals(0, this.game.getNextMoveLocation());
     }
 
     @Test public void nextMoveFree(){
-
+      this.game.setLocalBoard(0,MID_ROW_WIN);
+      this.game.nextMove(0);
+      assertTrue(this.game.nextMoveFree());
     }
+
+    @Test public void declareUtimateWin(){
+      this.game.setLocalBoard(0,MID_ROW_WIN);
+      this.game.setLocalBoard(1,MID_ROW_WIN);
+      this.game.setLocalBoard(2,MID_ROW_WIN);
+      assertTrue(this.game.checkWinner());
+    }
+
     //getLocalBoard, access eah local board
     //setBoard, setting each board for further checking other tests
     //checkUltimateWin, winning the biggest board
@@ -85,7 +85,5 @@ public class PlayGameTest {
     //createGame
     //buildUTTTBoard
     //nextMove, storing the move of the previous player to then send the next player to the corresponding local board, and then if the board is won, rewards a free move
-
-*/
 
 }
