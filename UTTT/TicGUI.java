@@ -39,11 +39,10 @@ public TicGUI()                                        //Tic tac default constru
       buttons[i][j] = new JButton();                //Instantiating buttons
       buttons[i][j].setText("");
       buttons[i][j].setVisible(true);
+      buttons[i][j].setFont(new Font("Courier", Font.BOLD,75));
 
-      game.setPreferredSize(new Dimension(900,900));
       game.add(buttons[i][j]);
       buttons[i][j].addActionListener(new myActionListener());        //Adding response event to buttons
-
      }
   }
 
@@ -51,6 +50,8 @@ public TicGUI()                                        //Tic tac default constru
 
 private void checkWin(int row, int col)
 {
+  Color myRed = new Color(255, 0, 0);
+  Color myGreen = new Color(0, 225, 0);
     try {
     if (buttons[0][2].getText()==buttons[1][2].getText()&& buttons[1][2].getText()==buttons[2][2].getText()&& buttons[2][2].getText()==buttons[0][2].getText()&& buttons[1][2].getText()!="")
     {
@@ -58,6 +59,26 @@ private void checkWin(int row, int col)
       System.out.println(buttons[1][2].getText()+ " wins!!!");
       JOptionPane.showMessageDialog(frame, buttons[1][2].getText()+ " wins a square!");
       setWinner(buttons[1][2].getText().charAt(0));
+      if (buttons[1][2].getText().equals("X"))
+      {
+        for(int i = 0; i < 3; i++)
+         {
+          for(int j = 0; j < 3; j++)
+          {
+             buttons[i][j].setBackground(myRed);
+          }
+         }
+      }
+      else
+      {
+        for(int i = 0; i < 3; i++)
+         {
+          for(int j = 0; j < 3; j++)
+          {
+             buttons[i][j].setBackground(myGreen);
+          }
+         }
+      }
    }
     if (buttons[0][1].getText()==buttons[1][1].getText()&& buttons[1][1].getText()==buttons[2][1].getText()&& buttons[2][1].getText()==buttons[0][1].getText()&& buttons[1][1].getText()!="")
    {
@@ -65,6 +86,26 @@ private void checkWin(int row, int col)
       System.out.println(buttons[1][1].getText()+ " wins!!!");
       JOptionPane.showMessageDialog(frame, buttons[1][1].getText()+ " wins a square!");
       setWinner(buttons[1][1].getText().charAt(0));
+      if (buttons[1][1].getText().equals("X"))
+      {
+        for(int i = 0; i < 3; i++)
+         {
+          for(int j = 0; j < 3; j++)
+          {
+             buttons[i][j].setBackground(myRed);
+          }
+         }
+      }
+      else
+      {
+        for(int i = 0; i < 3; i++)
+         {
+          for(int j = 0; j < 3; j++)
+          {
+             buttons[i][j].setBackground(myGreen);
+          }
+         }
+      }
    }
     if (buttons[0][0].getText()==buttons[1][0].getText()&& buttons[1][0].getText()==buttons[2][0].getText()&& buttons[2][0].getText()==buttons[0][0].getText()&& buttons[1][0].getText()!="")
    {
@@ -72,6 +113,26 @@ private void checkWin(int row, int col)
       System.out.println(buttons[1][0].getText()+ " wins!!!");
       JOptionPane.showMessageDialog(frame, buttons[1][0].getText()+ " wins  a square!");
       setWinner(buttons[1][0].getText().charAt(0));
+      if (buttons[1][0].getText().equals("X"))
+      {
+        for(int i = 0; i < 3; i++)
+         {
+          for(int j = 0; j < 3; j++)
+          {
+             buttons[i][j].setBackground(myRed);
+          }
+         }
+      }
+      else
+      {
+        for(int i = 0; i < 3; i++)
+         {
+          for(int j = 0; j < 3; j++)
+          {
+             buttons[i][j].setBackground(myGreen);
+          }
+         }
+      }
    }
     if (buttons[2][0].getText()==buttons[2][1].getText()&& buttons[2][1].getText()==buttons[2][2].getText()&& buttons[2][2].getText()==buttons[2][0].getText()&& buttons[2][1].getText()!="")
    {
@@ -79,6 +140,27 @@ private void checkWin(int row, int col)
       System.out.println(buttons[2][1].getText()+ " wins!!!");
       JOptionPane.showMessageDialog(frame, buttons[2][1].getText()+ " wins a square!");
       setWinner(buttons[2][1].getText().charAt(0));
+      if (buttons[2][1].getText().equals("X"))
+      {
+        for(int i = 0; i < 3; i++)
+         {
+          for(int j = 0; j < 3; j++)
+          {
+             buttons[i][j].setBackground(myRed);
+          }
+         }
+      }
+      else
+      {
+        for(int i = 0; i < 3; i++)
+         {
+          for(int j = 0; j < 3; j++)
+          {
+             buttons[i][j].setBackground(myGreen);
+          }
+         }
+      }
+
    }
     if (buttons[1][0].getText()==buttons[1][1].getText()&& buttons[1][1].getText()==buttons[1][2].getText()&& buttons[1][2].getText()==buttons[1][0].getText()&& buttons[1][1].getText()!="")
    {
@@ -86,6 +168,26 @@ private void checkWin(int row, int col)
       System.out.println(buttons[1][1].getText()+ " wins!!!");
       JOptionPane.showMessageDialog(frame, buttons[1][1].getText()+ " wins  a square!");
       setWinner(buttons[1][1].getText().charAt(0));
+      if (buttons[1][1].getText().equals("X"))
+      {
+        for(int i = 0; i < 3; i++)
+         {
+          for(int j = 0; j < 3; j++)
+          {
+             buttons[i][j].setBackground(myRed);
+          }
+         }
+      }
+      else
+      {
+        for(int i = 0; i < 3; i++)
+         {
+          for(int j = 0; j < 3; j++)
+          {
+             buttons[i][j].setBackground(myGreen);
+          }
+         }
+      }
    }
     if (buttons[0][0].getText()==buttons[0][1].getText()&& buttons[0][1].getText()==buttons[0][2].getText()&& buttons[0][2].getText()==buttons[0][0].getText()&& buttons[0][1].getText()!="")
    {
@@ -93,6 +195,26 @@ private void checkWin(int row, int col)
       System.out.println(buttons[0][1].getText()+ " wins!!!");
       JOptionPane.showMessageDialog(frame, buttons[0][1].getText()+ " wins  a square!");
       setWinner(buttons[0][1].getText().charAt(0));
+      if (buttons[0][1].getText().equals("X"))
+      {
+        for(int i = 0; i < 3; i++)
+         {
+          for(int j = 0; j < 3; j++)
+          {
+             buttons[i][j].setBackground(myRed);
+          }
+         }
+      }
+      else
+      {
+        for(int i = 0; i < 3; i++)
+         {
+          for(int j = 0; j < 3; j++)
+          {
+             buttons[i][j].setBackground(myGreen);
+          }
+         }
+      }
    }
    if (buttons[0][0].getText()==buttons[1][1].getText()&& buttons[1][1].getText()==buttons[2][2].getText()&& buttons[2][2].getText()==buttons[0][0].getText()&& buttons[1][1].getText()!="")
    {
@@ -100,6 +222,26 @@ private void checkWin(int row, int col)
       System.out.println(buttons[1][1].getText()+ " wins  a square!");
       JOptionPane.showMessageDialog(frame, buttons[1][1].getText()+ " wins  a square!");
       setWinner(buttons[1][1].getText().charAt(0));
+      if (buttons[1][1].getText().equals("X"))
+      {
+        for(int i = 0; i < 3; i++)
+         {
+          for(int j = 0; j < 3; j++)
+          {
+             buttons[i][j].setBackground(myRed);
+          }
+         }
+      }
+      else
+      {
+        for(int i = 0; i < 3; i++)
+         {
+          for(int j = 0; j < 3; j++)
+          {
+             buttons[i][j].setBackground(myGreen);
+          }
+         }
+      }
    }
    if (buttons[0][2].getText()==buttons[1][1].getText()&& buttons[1][1].getText()==buttons[2][0].getText()&& buttons[2][0].getText()==buttons[0][2].getText()&& buttons[1][1].getText()!="")
    {
@@ -108,6 +250,26 @@ private void checkWin(int row, int col)
       System.out.println(buttons[1][1].getText()+ " wins!!!");
       JOptionPane.showMessageDialog(frame, buttons[1][1].getText()+ " wins  a square!");
       setWinner(buttons[1][1].getText().charAt(0));
+      if (buttons[1][1].getText().equals("X"))
+      {
+        for(int i = 0; i < 3; i++)
+         {
+          for(int j = 0; j < 3; j++)
+          {
+             buttons[i][j].setBackground(myRed);
+          }
+         }
+      }
+      else
+      {
+        for(int i = 0; i < 3; i++)
+         {
+          for(int j = 0; j < 3; j++)
+          {
+             buttons[i][j].setBackground(myGreen);
+          }
+         }
+      }
    }
 
    if (moveCounter == 0)
@@ -117,6 +279,13 @@ private void checkWin(int row, int col)
      System.out.println("Stalemate");
      JOptionPane.showMessageDialog(frame, "Stalemate");
      setWinner('t');
+     for(int i = 0; i < 3; i++)
+      {
+       for(int j = 0; j < 3; j++)
+       {
+          buttons[i][j].setBackground(Color.yellow);
+       }
+      }
    }
 
     }catch(Exception e) {
@@ -147,7 +316,9 @@ private class myActionListener implements ActionListener
   {
    //Display X's or O's on the buttons
    //allowMoves;
-   System.out.println(buttons[0][0].getText());
+   System.out.println(a.getSource());
+   Color myRed = new Color(255, 0, 0);
+   Color myGreen = new Color(0, 225, 0);
 
    if (gameWon==false)
    {
@@ -155,134 +326,194 @@ private class myActionListener implements ActionListener
      {
        allowMoves = 0;
        if (WhoseTurn % 2 == 1)
+       {
          buttons[0][0].setText("O");
+         buttons[0][0].setBackground(myGreen);
+       }
        else
+       {
          buttons[0][0].setText("X");
-
-
+         buttons[0][0].setBackground(myRed);
+       }
        buttons[0][0].setEnabled(false);
        WhoseTurn ++;
        moveCounter--;
        checkWin(0,0);
+       playwhere(allowMoves);
      }
    else if(a.getSource() == buttons[0][1] && !buttons[0][1].getText().equals("X") && !buttons[0][1].getText().equals('O'))
      {
        allowMoves = 1;
        if (WhoseTurn % 2 == 1)
+       {
          buttons[0][1].setText("O");
+         buttons[0][1].setBackground(myGreen);
+       }
        else
+       {
          buttons[0][1].setText("X");
-
+         buttons[0][1].setBackground(myRed);
+       }
        buttons[0][1].setEnabled(false);
        WhoseTurn ++;
        moveCounter--;
        //compTurn(moveCounter);
        checkWin(0,1);
+       playwhere(allowMoves);
      }
    else if(a.getSource() == buttons[1][0] && !buttons[1][0].getText().equals("X") && !buttons[1][0].getText().equals('O'))
     {
       allowMoves= 3;
       if (WhoseTurn % 2 == 1)
+      {
         buttons[1][0].setText("O");
+        buttons[1][0].setBackground(myGreen);
+      }
       else
+      {
         buttons[1][0].setText("X");
+        buttons[1][0].setBackground(myRed);
+      }
 
       buttons[1][0].setEnabled(false);
       WhoseTurn ++;
       moveCounter--;
       //compTurn(moveCounter);
       checkWin(1,0);
+      playwhere(allowMoves);
     }
    else if(a.getSource() == buttons[1][1] && !buttons[1][1].getText().equals("X") && !buttons[1][1].getText().equals('O'))
     {
       allowMoves = 4;
       if (WhoseTurn % 2 == 1)
+      {
         buttons[1][1].setText("O");
+        buttons[1][1].setBackground(myGreen);
+      }
       else
+      {
         buttons[1][1].setText("X");
-
+        buttons[1][1].setBackground(myRed);
+      }
       buttons[1][1].setEnabled(false);
       WhoseTurn ++;
       moveCounter--;
       //compTurn(moveCounter);
       checkWin(1,1);
+      playwhere(allowMoves);
     }
    else if(a.getSource() == buttons[1][2] && !buttons[1][2].getText().equals("X") && !buttons[1][2].getText().equals('O'))
     {
       allowMoves = 5;
       if (WhoseTurn % 2 == 1)
+      {
         buttons[1][2].setText("O");
+        buttons[1][2].setBackground(myGreen);
+      }
       else
+      {
         buttons[1][2].setText("X");
+        buttons[1][2].setBackground(myRed);
+      }
 
       buttons[1][2].setEnabled(false);
       WhoseTurn ++;
       moveCounter--;
       //compTurn(moveCounter);
       checkWin(1,2);
+      playwhere(allowMoves);
     }
    else if(a.getSource() == buttons[2][2] && !buttons[2][2].getText().equals("X") && !buttons[2][2].getText().equals('O'))
     {
     allowMoves = 8;
      if (WhoseTurn % 2 == 1)
+     {
       buttons[2][2].setText ("O");
-     else
+      buttons[2][2].setBackground(myGreen);
+    }
+    else
+    {
       buttons[2][2].setText("X");
+      buttons[2][2].setBackground(myRed);
+    }
 
      buttons[2][2].setEnabled(false);
      WhoseTurn ++;
      moveCounter--;
      //compTurn(moveCounter);
      checkWin(2,2);
+     playwhere(allowMoves);
     }
    else if(a.getSource() == buttons[0][2] && !buttons[0][2].getText().equals("X") && !buttons[0][2].getText().equals('O'))
     {
       allowMoves = 2;
      if (WhoseTurn % 2 == 1)
+     {
       buttons[0][2].setText("O");
-     else
-      buttons[0][2].setText("X");
+      buttons[0][2].setBackground(myGreen);
+      }
+      else
+      {
+        buttons[0][2].setText("X");
+        buttons[0][2].setBackground(myRed);
+      }
 
      buttons[0][2].setEnabled(false);
      WhoseTurn ++;
      moveCounter--;
      //compTurn(moveCounter);
      checkWin(0,2);
+     playwhere(allowMoves);
     }
    else if(a.getSource() == buttons[2][1] && !buttons[2][1].getText().equals("X") && !buttons[2][1].getText().equals('O'))
     {
       allowMoves = 7;
      if (WhoseTurn % 2 == 1)
+     {
       buttons[2][1].setText("O");
+      buttons[2][1].setBackground(myGreen);
+      }
      else
-      buttons[2][1].setText("X");
+     {
+       buttons[2][1].setText("X");
+       buttons[2][1].setBackground(myRed);
+     }
 
      buttons[2][1].setEnabled(false);
      WhoseTurn ++;
      moveCounter--;
      //compTurn(moveCounter);
      checkWin(2,1);
+     playwhere(allowMoves);
     }
    else if(a.getSource() == buttons[2][0] && !buttons[2][0].getText().equals("X") && !buttons[2][0].getText().equals('O'))
     {
       allowMoves = 6;
      if (WhoseTurn % 2 == 1)
+     {
       buttons[2][0].setText("O");
-     else
+      buttons[2][0].setBackground(myGreen);
+    }
+    else
+    {
       buttons[2][0].setText("X");
+      buttons[2][0].setBackground(myRed);
+    }
 
      buttons[2][0].setEnabled(false);
      WhoseTurn ++;
      moveCounter--;
      //compTurn(moveCounter);
      checkWin(2,0);
+     playwhere(allowMoves);
     }
     overallwin();
-    playwhere(allowMoves);
     }
 
-   //if(a.getSource() == reset)
-     //{
+   if(a.getSource() == reset)
+     {
+       System.out.println("reset");
+       resetGame();
       //  for(int i = 0; i < 3; i++)
         // {
           // for(int j = 0; j < 3; j++)
@@ -295,7 +526,7 @@ private class myActionListener implements ActionListener
 
             //}
          //}
-       //}
+      }
   }
  }
 
@@ -328,13 +559,15 @@ public void Game()
    tac[7] = game6;
    tac[8] = game9;
 
-   frame.setSize(1000, 1000);
+   //frame.setSize(1000, 1000);
+   frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
    frame.setDefaultCloseOperation(EXIT_ON_CLOSE);        //Setting dimension of Jframe and setting parameters
    frame.setVisible(true);
-   frame.setResizable(false);
+   frame.setResizable(true);
    JPanel mainPanel = new JPanel(new BorderLayout());         //create main panel container to put layer others on top
+   //mainPanel.add(reset)
    JPanel menu = new JPanel(new BorderLayout());
-   JPanel gameDisplay = new JPanel(new GridLayout(3,3,10,10));
+   JPanel gameDisplay = new JPanel(new GridLayout(3,3,200,40));
 
   gameDisplay.add(game1.game);
   gameDisplay.add(game4.game);
@@ -353,9 +586,8 @@ public void Game()
   menu.setPreferredSize(new Dimension(1000,50));                     //Setting dimensions of panels
   gameDisplay.setPreferredSize(new Dimension(900,900));
 
-  mainPanel.add(menu, BorderLayout.NORTH);                   //Add two panels to the main container panel
+  mainPanel.add(reset, BorderLayout.NORTH);                   //Add two panels to the main container panel
   mainPanel.add(gameDisplay, BorderLayout.SOUTH);
-  System.out.println(tac[0].gameWon);
 }
 public void overallwin()
 {
@@ -446,12 +678,23 @@ public void playwhere(int go)
       }
     }
   }
-
-
-
-
-
-
+}
+public void resetGame()
+{
+  for(int i=0; i < 3; i++)
+  {
+    for(int j= 0; j < 3; j++)
+    {
+      for(int k = 0; k < 9; k ++)
+      {
+        tac[k].gameWon = false;
+        tac[k].buttons[i][j].setText("");
+        tac[k].buttons[i][j].setEnabled(true);
+        tac[k].moveCounter = 9;
+        WhoseTurn = 1;
+      }
+    }
+  }
 
 }
 }
