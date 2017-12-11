@@ -272,12 +272,12 @@ private void checkWin(int row, int col)
       }
    }
 
-   if (moveCounter == 0)
+   if (moveCounter == 0 && gameWon == false)
    {
      allowMoves = 10;
      gameWon = true;
-     System.out.println("Stalemate");
-     JOptionPane.showMessageDialog(frame, "Stalemate");
+
+     JOptionPane.showMessageDialog(frame, "Stalemate in this block");
      setWinner('t');
      for(int i = 0; i < 3; i++)
       {
@@ -563,7 +563,6 @@ public void Game()
   gameDisplay.add(game3.game);
   gameDisplay.add(game6.game);
   gameDisplay.add(game9.game);
-
 
   frame.add(mainPanel);                                         //add main container panel to frame
 
